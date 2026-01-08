@@ -1,3 +1,4 @@
+data "aws_caller_identity" "account" {}
 /*
 data "terraform_remote_state" "acm" {
   backend = "s3"
