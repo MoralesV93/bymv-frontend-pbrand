@@ -1,9 +1,6 @@
 name: HTML Lint
 
 on:
-  push:
-    paths:
-      - 'app/www/**'
   pull_request:
     paths:
       - 'app/www/**'
