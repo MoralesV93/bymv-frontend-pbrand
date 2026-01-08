@@ -5,25 +5,42 @@ on:
     branches: [ feature/APP-DeployWorkflow ]
 
 jobs:
-  deploy:
+  is_new_release:
     environment: default
     runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.check_tag.outputs.deploy }}
     steps:
       - name: Checkout (with tags)
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-#      - name: Check for tag on this commit
-#        id: check_tag
-#        run: |
-#          tags=$(git tag --points-at $GITHUB_SHA)
-#          if [ -z "$tags" ]; then
-#            echo "No tag found on commit $GITHUB_SHA — skipping deploy"
-#            exit 0
-#          fi
-#          echo "Found tag(s): $tags"
-
+      - name: Check for tag on this commit
+        id: check_tag
+        run: |
+          tags=$(git tag --points-at $GITHUB_SHA)
+          if [ -z "$tags" ]; then
+            echo "No tag found on commit $GITHUB_SHA — skipping deploy"
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "Found tag(s): $tags"
+          echo "deploy=true" >> "$GITHUB_OUTPUT"
+  keep-going:
+      runs-on: ubuntu-latest
+      name: Deploy ${{ needs.is_new_release.outputs.deploy }}
+      needs: is_new_release
+      if: needs.is_new_release.outputs.deploy == 'false'
+      steps:
+        - name: No deployment needed
+          run: echo "This commit is not tagged. No deployment necessary."
+  deploy:
+    runs-on: ubuntu-latest
+    environment: default
+    name: Deploy ${{ needs.is_new_release.outputs.deploy }}
+    needs: is_new_release
+    if: needs.is_new_release.outputs.deploy == 'true'
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
