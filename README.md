@@ -57,6 +57,14 @@ cd app/www
 python3 -m http.server 8080
 # then open http://localhost:8080
 ```
+or running a container with Nginx.
+
+```bash
+cd app/www
+docker build -t pbrand .
+docker run -i -p 8080:80 pbrand
+```
+Open the browser on http://localhost:8080
 
 Local testing
 -------------
