@@ -1,0 +1,27 @@
+name: Test HTML Validity
+
+on:
+  pull_request:
+    paths:
+      - 'app/www/**'
+jobs:
+  html-lint-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      - name: Run html-validate
+        run: npx html-validate 'app/www/**/*.html'
+  check-app-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress './**/*.html'
+          fail: true
+          workingDirectory: './app/www'
