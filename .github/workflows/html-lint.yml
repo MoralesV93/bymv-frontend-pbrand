@@ -4,8 +4,6 @@ on:
   pull_request:
     paths:
       - 'app/www/**'
-    branches:
-      - release/**
 jobs:
   html-validate:
     runs-on: ubuntu-latest
