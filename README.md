@@ -88,7 +88,7 @@ Continous Integration and Continous Delivery CD/CI works in this way:
 
 - The git workflow I chose was [feature-branch](https://mergify.com/blog/feature-branch-workflow-a-practical-guide-for-git)
 
-- For every PR opened there is an automated process [html-lint](/.github/workflows/html-lint.yml) in order to be able to close the PR, I configured that on the repos settings (PR has this job as validator).
+- For every PR opened there is an automated process [test](/.github/workflows/test.yml) in order to be able to close the PR, I configured that on the repos settings (PR has this job as validator).
 
 - To deploy new changes on the default environment, we need to create a new 'release' branch with the version number (release/0.0.1) and modify the package.json file with the app version to keep the version of the application.
 
