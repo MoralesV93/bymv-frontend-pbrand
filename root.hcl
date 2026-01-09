@@ -102,6 +102,6 @@ generate "terraform_version" {
   disable_signature = true
   if_exists = "skip"
   contents = <<EOF
-1.3.0
+${local.default_terraform_version}
 EOF
 }
