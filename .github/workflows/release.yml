@@ -1,0 +1,44 @@
+name: Release Tagging
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  create_tag:
+    if: >
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'release/') &&
+      github.event.pull_request.base.ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Determine tag name
+        id: tag
+        run: |
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+          TAG="${BRANCH#release/}"
+          if [ "$TAG" = "$BRANCH" ]; then
+            echo "Branch name does not start with release/"
+            exit 1
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create annotated tag and push
+        run: |
+          TAG=${{ steps.tag.outputs.tag }}
+          git tag -a "$TAG" -m "Release $TAG"
+          git push origin "refs/tags/$TAG"
