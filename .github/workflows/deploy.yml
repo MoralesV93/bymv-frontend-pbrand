@@ -1,14 +1,17 @@
 name: Deploy to S3 and CloudFront
 
 on:
-  push:
-    branches: [ feature/CICD_ChangeDeployLogic ]
+  workflow_run:
+    workflows: [Release Tagging]
+    types:
+      - completed
 
 permissions:
   contents: write
 
 jobs:
   is_new_release:
+    if : github.event.workflow_run.conclusion == 'success'
     environment: default
     runs-on: ubuntu-latest
     outputs:
