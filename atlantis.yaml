@@ -1,0 +1,32 @@
+version: 3
+automerge: true
+delete_source_branch_on_merge: true
+parallel_plan: false # to avoid file busy
+parallel_apply: true
+workflows:
+  bymv-workflow:
+    #https://www.runatlantis.io/docs/custom-workflows.html#custom-init-plan-apply-commands
+    plan:
+      steps:
+        - run: terraform init --upgrade
+        - run: terraform workspace new $WORKSPACE || true
+        - run: terraform workspace select $WORKSPACE
+        - run: terraform plan -out $PLANFILE
+    apply:
+      steps:
+        - run: terraform apply $PLANFILE
+projects:
+  # Yaml anchor and templeting for Default environment
+  - &DefaultTemplate
+    name: DefaultTemplate
+    dir: DefaultTemplate
+    workspace: default
+    workflow: bymv-workflow
+    execution_order_group: 1
+    apply_requirements: [undiverged] #https://www.runatlantis.io/docs/command-requirements.html#undiverged
+    autoplan:
+      enabled: true
+      when_modified:
+        - "./terraform/modules/**/*.tf"
+        - "*.tf"
+        - ".terraform.lock.hcl"
