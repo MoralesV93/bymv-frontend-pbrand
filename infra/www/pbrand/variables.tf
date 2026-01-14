@@ -6,7 +6,7 @@ variable "service" {
 
 variable "name" {
   description = "Main name of the resources"
-  type = string
+  type        = string
 }
 
 variable "domain_name" {
@@ -23,7 +23,7 @@ variable "cnmanage_key" {
 }
 variable "aliases" {
   description = "Alises used for the web page"
-  type = list(string)
+  type        = list(string)
 }
 variable "acm_certification" {
   description = "ACM Certification ARN"

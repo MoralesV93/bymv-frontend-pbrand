@@ -21,6 +21,7 @@ provider "aws" {
       namespace   = var.namespace
       environment = terraform.workspace
       location    = "infra/www/pbrand"
+      tester      = "bymv"
     }
   }
 }

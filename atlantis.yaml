@@ -8,13 +8,13 @@ workflows:
     #https://www.runatlantis.io/docs/custom-workflows.html#custom-init-plan-apply-commands
     plan:
       steps:
-        - run: terraform init --upgrade
-        - run: terraform workspace new $WORKSPACE || true
-        - run: terraform workspace select $WORKSPACE
-        - run: terraform plan -out $PLANFILE
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION init --upgrade
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION workspace new $WORKSPACE || true
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION workspace select $WORKSPACE
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION plan --var-file=$TF_VAR_FILE -out $PLANFILE
     apply:
       steps:
-        - run: terraform apply $PLANFILE
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION apply $PLANFILE
 projects:
   # Yaml anchor and templeting for Default environment
   - &DefaultTemplate
@@ -22,6 +22,7 @@ projects:
     dir: DefaultTemplate
     workspace: default
     workflow: bymv-workflow
+    terraform_version: 1.3.0
     execution_order_group: 1
     apply_requirements: [undiverged] #https://www.runatlantis.io/docs/command-requirements.html#undiverged
     autoplan:
