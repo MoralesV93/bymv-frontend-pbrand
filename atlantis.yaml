@@ -30,3 +30,6 @@ projects:
         - "./terraform/modules/**/*.tf"
         - "*.tf"
         - ".terraform.lock.hcl"
+  - <<: *DefaultTemplate
+    name: infra/www/pbrand-default
+    dir: infra/www/pbrand
