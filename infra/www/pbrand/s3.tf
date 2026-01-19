@@ -13,4 +13,5 @@ module "personal_web" {
   dns_alias_enabled                   = true
   parent_zone_id                      = local.parent_zone_id
   compress                            = true
+  bucket_versioning                   = "Enabled"
 }
