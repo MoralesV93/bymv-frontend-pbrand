@@ -1,13 +1,30 @@
 /* Custom Stylesheet */
 /**
  *
- * Made By Joash Pereira
+ * Author: Byron Morales Veliz
  * Thanks for MaterializeCSS.com
  */
 
-.default_color{background-color: #2196F3 !important}
+.first-color { 
+	background: #363b4e; 
+}
+	
+.second-color { 
+	background: #4f3b78; 
+}
 
-.default_color_text{color: #2196F3 !important}
+.third-color { 
+	background: #927fbf; 
+}
+
+.fourth-color { 
+	background: #c4bbf0; 
+}
+
+
+.highlight_text {
+    color: #d3c0bd !important;
+}
 
 .icon-block {
     padding: 0 15px;
@@ -15,7 +32,24 @@
 
 #intro, #work, #team {padding-top: 4rem;}
 
-
+div.intro_text {
+    font-size: 1.8rem;
+    text-align: justify;
+}
+div.intro-text-title h3 {
+    padding-top: 50%;
+    color: #c2b1ae;
+}
+div.intro_badges_text {
+    font-size: 1.4rem;
+    text-align: center;
+}
+div.intro-badges-unir {
+    padding-top: 22%;
+}
+div.intro_text > div.no-margin-bottom {
+    margin-bottom: 0px;
+}
 #index-banner {
     min-height: 632px;
     max-height: 864px;
@@ -54,11 +88,6 @@
 
 .in{font-weight: 400 !important; font-style: normal !important;}
 
-.promo i {
-    color: #2196F3;
-    font-size: 7rem;
-    display: block;
-}
 .card-content a {color: #2196F3;}
 
 .card-content a:hover {color: #2196F3;}
@@ -265,8 +294,8 @@ footer.page-footer {
 }
 
 img.cert-image{
-    max-width: 80%;
-    height: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 div.me-background{
     background-image: url(../img/profile.png);
@@ -290,5 +319,14 @@ div.me-background{
         background-position-x: left;
         background-size: 50%;
         background-position-y: bottom;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    div.intro-text-title h3 {
+        padding-top: 0px;
+    }
+    div.intro-badges-unir {
+        padding-top: 0px;
     }
 }
