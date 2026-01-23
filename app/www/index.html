@@ -7,9 +7,9 @@
     <title>Byron Morales Page</title>
 
     <!-- CSS  -->
-    <link href="css/styles.css" type="text/css" rel="stylesheet" >
     <link href="css/plugin-min.css" type="text/css" rel="stylesheet">
-    <link href="css/custom-min.css" type="text/css" rel="stylesheet" >
+    <link href="css/custom-min.css" type="text/css" rel="stylesheet">
+    <link href="css/styles.css" type="text/css" rel="stylesheet">
 </head>
 <body id="top" class="scrollspy">
 
@@ -22,7 +22,7 @@
 
 <!--Navigation-->
  <div class="navbar-fixed">
-    <nav id="nav_f" class="default_color">
+    <nav class="nav_f">
         <div class="container">
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">Byron Morales</a>
@@ -75,35 +75,35 @@
                 <div class="row no-margin-bottom">
                     <div class="col s12 m12 l6 left">
                         <p>
-                            <span class="highlight_text">7 years</span> working under the DevOps culture.
+                            <span class="highlight-text">7 years</span> working under the DevOps culture.
                         </p>
                     </div>
                 </div>
                 <div class="row no-margin-bottom">
                     <div class="col s12 m12 l6 right">
                         <p>
-                            Grown from the <span class="highlight_text">development side</span> (front-end, back-end, infrastructure).
+                            Grown from the <span class="highlight-text">development side</span> (front-end, back-end, infrastructure).
                         </p>
                     </div>
                 </div>
                 <div class="row no-margin-bottom">
                     <div class="col s12 m12 l6 left">
                         <p>
-                            <span class="highlight_text">Scrum and gitflow</span> as a way to work and organise.
+                            <span class="highlight-text">Scrum and gitflow</span> as a way to work and organise.
                         </p>
                     </div>
                 </div>
                 <div class="row no-margin-bottom">
                     <div class="col s12 m12 l6 right">
                         <p>
-                            Good <span class="highlight_text">soft skills</span>
+                            Good <span class="highlight-text">soft skills</span>
                         </p>
                     </div>
                 </div>
             </div>
 
         </div>
-        <hr class="separator">
+        <hr class="intro-serparator">
         <div class="row">
             <div class="col s12 m6 l6 intro-text-title center">
                 <h3>Achivements</h3>
@@ -157,16 +157,21 @@
 <!--Work-->
 <div class="section scrollspy" id="work">
     <div class="container">
-        <h2 class="header text_b">Work </h2>
+        <h2 class="header-section">Work </h2>
         <div class="row">
             <div class="col s12 m4 l4">
                 <div class="card">
-                    <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" alt="prometheus" src="img/pbrand_repo-logo.png">
+                    <div class="card-image waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="prometheus" src="img/pbrand-repo-logo.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
                     <div class="card-content">
                         <span class="card-title activator grey-text text-darken-4">Personal Brand Project</span>
-                        <p><a href="https://github.com/MoralesV93/bymv-frontend-pbrand">Project link</a></p>
+                        <p><a href="https://github.com/MoralesV93/bymv-frontend-pbrand"><i class="small fa fa-github-square"></i> Repo</a></p>
                     </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Personal Brand Project<i class="mdi-navigation-close right"></i></span>
@@ -174,37 +179,47 @@
                     </div>
                 </div>
             </div>
-                <div class="col s12 m4 l4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" alt="prometheus" src="img/atlantis-repo-logo.png">
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light activator">
+                        <div>
+                            <img  class="activator" alt="prometheus" src="img/atlantis-repo-logo.png">
                         </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Github Atlantis Integration<i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="https://github.com/MoralesV93/bymv-gitops-atlantis">Project link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Github Atlantis Integration<i class="mdi-navigation-close right"></i></span>
-                            <p>A GitOps infrastructure automation project using Atlantis to enable Terraform workflows through GitHub Pull Requests.</p>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
                         </div>
                     </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Github Atlantis Integration</span>
+                        <p><a href="https://github.com/MoralesV93/bymv-gitops-atlantis"><i class="small fa fa-github-square"></i> Repo</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Github Atlantis Integration<i class="mdi-navigation-close right"></i></span>
+                        <p>A GitOps infrastructure automation project using Atlantis to enable Terraform workflows through GitHub Pull Requests.</p>
+                    </div>
                 </div>
-                <div class="col s12 m4 l4">
-                    <div class="card">
-                        <div class="card-image waves-effect waves-block waves-light">
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light activator">
+                        <div>
                             <img class="activator" alt="prometheus" src="img/prometheus-repo-logo.png">
                         </div>
-                        <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Prometheus Python Exporter<i class="mdi-navigation-more-vert right"></i></span>
-                            <p><a href="https://github.com/MoralesV93/prometheus-python-exporter">Project link</a></p>
-                        </div>
-                        <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Prometheus Python Exporter<i class="mdi-navigation-close right"></i></span>
-                            <p>Python project to create a custom promethus metrics. This project create a gauge about the number of commits that a DockerHub
-                                organization has in the overall repositories linked to it. You can find the python application and the kubernetes deployments using Helm Charts</p>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
                         </div>
                     </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Prometheus Python Exporter</span>
+                        <p><a href="https://github.com/MoralesV93/prometheus-python-exporter"><i class="small fa fa-github-square"></i> Repo</a></p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Prometheus Python Exporter<i class="mdi-navigation-close right"></i></span>
+                        <p>Python project to create a custom promethus metrics. This project create a gauge about the number of commits that a DockerHub
+                            organization has in the overall repositories linked to it. You can find the python application and the kubernetes deployments using Helm Charts</p>
+                    </div>
                 </div>
+            </div>
         </div>
     </div>
 </div>
@@ -217,21 +232,24 @@
 <!--Team-->
 <div class="section scrollspy" id="team">
     <div class="container">
-        <h2 class="header text_b"> My Team </h2>
+        <h2 class="header-section"> My Team </h2>
         <div class="row">
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="aws" src="img/aws.png">
-                    </div>
-                    <div class="card-content">
+                    <div class="waves-effect waves-block waves-light activator ">
                         <div>
-                            <div>
-                                <p class="card-title activator grey-text text-darken-4">AWS</p>
-                            </div>
+                            <img class="activator" alt="aws" src="img/aws.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
+                    </div>
+                    <div class="card-content activator">
+                        <div>
+                            <p class="card-title grey-text text-darken-4">AWS</p>
                         </div>
                         <div>
-                            <p class="highlight_text">Cloud Service</p>
+                            <span class="highlight-text">Cloud Service</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -249,17 +267,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="terraform" src="img/terraform_icon.png">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="terraform" src="img/terraform_icon.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">Terraform</p>
+                                <p class="card-title grey-text text-darken-4">Terraform</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">Infrastructure as a code</p>
+                            <span class="highlight-text">Infrastructure as a code</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -275,17 +298,20 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="kubernetes" src="img/kubenetes_icon.svg">
-                    </div>
-                    <div class="card-content">
+                    <div class="waves-effect waves-block waves-light activator">
                         <div>
-                            <div>
-                                <p class="card-title activator grey-text text-darken-4">Kubernetes</p>
-                            </div>
+                            <img class="activator" alt="kubernetes" src="img/kubenetes_icon.svg">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
+                    </div>
+                    <div class="card-content activator">
+                        <div>
+                            <p class="card-title grey-text text-darken-4">Kubernetes</p>
                         </div>
                         <div>
-                            <p class="highlight_text">Container Orchestration</p>
+                            <span class="highlight-text">Container Orchestration</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -302,17 +328,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="grafana" src="img/grafana_icon.png">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="grafana" src="img/grafana_icon.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">Grafana</p>
+                                <p class="card-title grey-text text-darken-4">Grafana</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">Monitoring and Visualization</p>
+                            <span class="highlight-text">Monitoring and Visualization</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -329,17 +360,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="argocd" src="img/argocd_icon.png">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="argocd" src="img/argocd_icon.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">ArgoCD</p>
+                                <p class="card-title grey-text text-darken-4">ArgoCD</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">GitOps tool</p>
+                            <span class="highlight-text">GitOps tool</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -354,17 +390,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="argocd" src="img/atlantis.png">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="argocd" src="img/atlantis.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">Atlantis</p>
+                                <p class="card-title grey-text text-darken-4">Atlantis</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">GitOps tool</p>
+                            <span class="highlight-text">GitOps tool</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -380,17 +421,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="github" src="img/github_icon.svg">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="github" src="img/github_icon.svg">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">Github</p>
+                                <p class="card-title grey-text text-darken-4">Github</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">Git version control</p>
+                            <span class="highlight-text">Git version control</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -407,17 +453,22 @@
             </div>
             <div class="col s12 m3">
                 <div class="card card-avatar">
-                    <div class="waves-effect waves-block waves-light">
-                        <img class="activator" alt="postgresql" src="img/postgresql.png">
+                    <div class="waves-effect waves-block waves-light activator">
+                        <div>
+                            <img class="activator" alt="postgresql" src="img/postgresql.png">
+                        </div>
+                        <div class="touch-activator">
+                            <img alt="touch-finger" class="touch-activator-img" src="img/touch-finger.png">
+                        </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content activator">
                         <div>
                             <div>
-                                <p class="card-title activator grey-text text-darken-4">PostgreSQL</p>
+                                <p class="card-title grey-text text-darken-4">PostgreSQL</p>
                             </div>
                         </div>
                         <div>
-                            <p class="highlight_text">Database management</p>
+                            <span class="highlight-text">Database management</span>
                         </div>
                     </div>
                     <div class="card-reveal">
@@ -437,7 +488,7 @@
 </div>
 
 <!--Footer-->
-<footer id="contact" class="page-footer default_color scrollspy">
+<footer id="contact" class="page-footer scrollspy">
     <div class="container">
         <div class="row">
             <div class="col l3 s12">
@@ -463,7 +514,7 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright default_color">
+    <div class="footer-copyright">
         <div class="container">
             Made by <a class="white-text" href="#">Byron Morales</a>. Thanks to <a class="white-text" href="http://materializecss.com/">materializecss</a>
         </div>

@@ -4,26 +4,27 @@
  * Author: Byron Morales Veliz
  * Thanks for MaterializeCSS.com
  */
-
-.first-color { 
-	background: #363b4e; 
+:root {
+  /* Define your main color here */
+  --first-color: #36626a;
+  --second-color: #588d9c;
+  --third-color: #73b1c1;
+  --fourth-color: #f1d18a;
+  --projects-bg-color: #ebdcc5;
 }
-	
-.second-color { 
-	background: #4f3b78; 
-}
-
-.third-color { 
-	background: #927fbf; 
-}
-
-.fourth-color { 
-	background: #c4bbf0; 
+nav {
+    background-color: var(--first-color);
 }
 
+#index-banner {
+    min-height: 632px;
+    max-height: 864px;
+    position: relative;
+    background-color: var(--first-color);
+}
 
-.highlight_text {
-    color: #d3c0bd !important;
+.highlight-text {
+    color: var(--third-color);
 }
 
 .icon-block {
@@ -38,24 +39,24 @@ div.intro_text {
 }
 div.intro-text-title h3 {
     padding-top: 50%;
-    color: #c2b1ae;
+    color: var(--second-color);
 }
 div.intro_badges_text {
     font-size: 1.4rem;
     text-align: center;
 }
 div.intro-badges-unir {
-    padding-top: 22%;
+    padding-top: 21%;
 }
 div.intro_text > div.no-margin-bottom {
     margin-bottom: 0px;
 }
-#index-banner {
-    min-height: 632px;
-    max-height: 864px;
-    position: relative;
-    background-color: #2196F3;
+
+.intro-serparator {
+    border-top: 2px solid var(--second-color);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+
 
 #nav_f{
     box-shadow: none !important; 
@@ -88,7 +89,7 @@ div.intro_text > div.no-margin-bottom {
 
 .in{font-weight: 400 !important; font-style: normal !important;}
 
-.card-content a {color: #2196F3;}
+.card-content a {color: var(--third-color);}
 
 .card-content a:hover {color: #2196F3;}
 
@@ -127,6 +128,10 @@ nav ul a {
     background-color: #aebcb9;
 }
 
+.header-section {
+    color: var(--second-color)
+}
+
 .cd-headline.type .cd-words-wrapper.waiting::after {
     -webkit-animation: cd-pulse 1s infinite;
     -moz-animation: cd-pulse 1s infinite;
@@ -141,7 +146,7 @@ nav ul a {
 }
 
 .cd-headline.type .cd-words-wrapper.selected b {
-    color: #2196F3;
+    color: var(--second-color);
 }
 
 .cd-headline.type b {
@@ -285,12 +290,34 @@ nav a.button-collapse {
     line-height: 30px !important;
 }
 
+div.touch-activator {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0.3
+}
+
+img.touch-activator-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
 .parallax-container {
     max-height: 400px;
 }
 
 footer.page-footer {
     margin-top: 0px !important;
+    background-color: var(--first-color);
+}
+.footer-copyright {
+    background-color: var(--first-color);
+
 }
 
 img.cert-image{
