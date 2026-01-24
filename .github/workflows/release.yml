@@ -3,6 +3,8 @@ name: Release Tagging
 on:
   pull_request:
     types: [closed]
+
+    
 permissions:
   contents: write
 
@@ -31,7 +33,7 @@ jobs:
               echo "Branch name does not start with release/"
               exit 1
             fi
-            echo "tag=test" >> $GITHUB_OUTPUT
+            echo "tag=$TAG" >> $GITHUB_OUTPUT
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
@@ -42,7 +44,6 @@ jobs:
       
       - name: Sync site to S3 for release tagging
         run: |
-          echo "tag=test" >> $GITHUB_OUTPUT
           aws s3 sync app/www/ s3://${{ vars.AWS_S3_BUCKET }}/releases/${{ steps.tag.outputs.tag }} --delete \
               --exclude 'node_modules/*' \
               --exclude 'package**' \
