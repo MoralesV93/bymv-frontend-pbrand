@@ -5,13 +5,19 @@ on:
     workflows: [Release Tagging]
     types:
       - completed
+  workflow_dispatch:
+    inputs:
+      tag-version:
+        description: 'Tag version to deploy (format: X.X.X)'
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 jobs:
   get_tag:
-    if : github.event.workflow_run.conclusion == 'success'
+    if : github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch'
     environment: default
     runs-on: ubuntu-latest
     outputs:
@@ -25,14 +31,31 @@ jobs:
       - name: Check for tag on this commit
         id: check_tag
         run: |
-          tags=$(git tag --points-at $GITHUB_SHA)
-          if [ -z "$tags" ]; then
-            echo "No tag found on commit $GITHUB_SHA — skipping deploy"
+          # Determine tag source based on trigger event
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            tag="${{ inputs.tag-version }}"
+            echo "Using tag from workflow_dispatch: $tag"
+          else
+            # workflow_run event
+            tag=$(git tag --points-at $GITHUB_SHA)
+            echo "Using tag from commit: $tag"
+          fi
+          
+          # Validate tag format (X.X.X or vX.X.X)
+          if ! [[ "$tag" =~ ^v?[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid tag format: $tag. Expected format: X.X.X"
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          
+          if [ -z "$tag" ]; then
+            echo "No tag found — skipping deploy"
             echo "deploy=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          echo "Found tag(s): $tags"
-          echo "tag=$tags" >> "$GITHUB_OUTPUT"
+          
+          echo "Found tag: $tag"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "deploy=true" >> "$GITHUB_OUTPUT"
   deploy:
     runs-on: ubuntu-latest
