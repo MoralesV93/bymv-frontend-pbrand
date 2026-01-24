@@ -10,6 +10,7 @@ module "personal_web" {
   cloudfront_access_logging_enabled   = false
   block_origin_public_access_enabled  = true
   origin_force_destroy                = true
+  origin_path                         = "/current"
   dns_alias_enabled                   = true
   parent_zone_id                      = local.parent_zone_id
   compress                            = true
