@@ -94,7 +94,13 @@ jobs:
           PATHS: '/*'
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      
+
+      - name: Update 'current' tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -f current ${{ needs.get_tag.outputs.tag }}
+          git push origin current --force
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
