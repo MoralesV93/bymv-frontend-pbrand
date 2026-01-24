@@ -28,7 +28,7 @@ jobs:
         id: tag
         run: |
             BRANCH="${{ github.event.pull_request.head.ref }}"
-            TAG="${BRANCHrelease/}"
+            TAG="${BRANCH#release/}"
             if [ "$TAG" = "$BRANCH" ]; then
               echo "Branch name does not start with release/"
               exit 1
