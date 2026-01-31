@@ -70,15 +70,15 @@ div.intro_text > div.no-margin-bottom {
     color:white;
 }
 
-.brand-logo{
+.brand-title {
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-align: center;
+}
+
+nav .button-collapse{
+    display: block;
     position: absolute;
-    color: #fff;
-    display: inline-block;
-    font-size: 2.1rem;
-    font-style: normal;
-    font-weight: 100;
-    padding: 0;
-    letter-spacing: 7px;
 }
 
 .text_h2 {font-weight: 100;margin-bottom: 4%; line-height: 4.5rem;}
@@ -260,7 +260,7 @@ input, textarea {
 }
 
 nav a.button-collapse {
-    left: -25px;
+    left: 0px;
 }
 
 .card-avatar .waves-effect {
@@ -330,6 +330,16 @@ div.me-background{
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+@media only screen and (min-width: 993px) {
+    .row .col.l6 {
+        text-align: left;
+    }
+    .brand-title {
+    text-align: center;
+    }
+}
+
 @media (max-width: 767px) {
     div.me-background {
         background-size: 74%;
@@ -339,6 +349,11 @@ div.me-background{
     }
 }
 
+@media (min-width: 991px) {
+    nav .button-collapse{
+        display: none;
+    }
+}
 /* Background image for medium-sized screens */
 @media (min-width: 768px) and (max-width: 991px) {
     div.me-background {
