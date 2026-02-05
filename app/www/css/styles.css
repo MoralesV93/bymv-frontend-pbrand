@@ -55,6 +55,7 @@ div.intro_text > div.no-margin-bottom {
 .intro-serparator {
     border-top: 2px solid var(--second-color);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-bottom: 50px;
 }
 
 
@@ -333,10 +334,10 @@ div.me-background{
 
 @media only screen and (min-width: 993px) {
     .row .col.l6 {
-        text-align: left;
+        text-align: center;
     }
     .brand-title {
-    text-align: center;
+        text-align: center;
     }
 }
 
