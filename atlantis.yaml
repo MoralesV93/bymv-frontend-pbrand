@@ -3,6 +3,14 @@ automerge: true
 delete_source_branch_on_merge: true
 parallel_plan: false
 parallel_apply: true
+
+# Usage examples:
+#   atlantis plan
+#   atlantis plan -p infra/www/pbrand-default
+#   atlantis plan -- -target=aws_s3_bucket.example
+#   atlantis apply
+#   atlantis unlock
+
 workflows:
   bymv-workflow:
     plan:
