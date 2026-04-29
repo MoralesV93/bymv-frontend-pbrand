@@ -1,19 +1,35 @@
 version: 3
 automerge: true
 delete_source_branch_on_merge: true
-parallel_plan: false # to avoid file busy
+parallel_plan: false
 parallel_apply: true
 workflows:
   bymv-workflow:
-    #https://www.runatlantis.io/docs/custom-workflows.html#custom-init-plan-apply-commands
     plan:
       steps:
+        # Format check - fail if code not formatted
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION fmt -check -recursive .
+
+        # Init & workspace setup
         - run: terraform$ATLANTIS_DEFAULT_TF_VERSION init --upgrade
         - run: terraform$ATLANTIS_DEFAULT_TF_VERSION workspace new $WORKSPACE || true
         - run: terraform$ATLANTIS_DEFAULT_TF_VERSION workspace select $WORKSPACE
+
+        # Validate config
+        - run: terraform$ATLANTIS_DEFAULT_TF_VERSION validate
+
+        # Security scan (optional - if tfsec installed)
+        - run: command -v tfsec &>/dev/null && tfsec . --soft-fail || true
+
+        # Generate plan
         - run: terraform$ATLANTIS_DEFAULT_TF_VERSION plan --var-file=$TF_VAR_FILE -out $PLANFILE
+
+        # Cost estimate (optional - if infracost installed)
+        - run: command -v infracost &>/dev/null && infracost breakdown --path $PLANFILE --format table || true
+
     apply:
       steps:
+        # Apply changes
         - run: terraform$ATLANTIS_DEFAULT_TF_VERSION apply $PLANFILE
 projects:
   # Yaml anchor and templeting for Default environment
